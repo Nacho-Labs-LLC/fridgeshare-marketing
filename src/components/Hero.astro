@@ -1,0 +1,51 @@
+---
+---
+<section class="relative overflow-hidden bg-gradient-to-b from-honey-50 to-cream px-6 py-20 sm:py-32">
+  <div class="mx-auto max-w-4xl text-center">
+    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-honey-200 bg-white px-4 py-1.5 text-sm font-medium text-warm-700 shadow-sm">
+      <span class="h-2 w-2 rounded-full bg-honey-400"></span>
+      Open Source &middot; Self-Hosted &middot; No Accounts
+    </div>
+
+    <h1 class="text-5xl font-bold tracking-tight text-warm-900 sm:text-6xl lg:text-7xl">
+      Your fridge door.<br class="hidden sm:block" />
+      <span class="text-honey-600">Running in two minutes.</span>
+    </h1>
+
+    <p class="mx-auto mt-6 max-w-2xl text-xl text-warm-700 leading-relaxed">
+      Run one Docker container, create a board, and share the edit link with your household.
+    </p>
+
+    <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <a
+        href="https://demo.fridgeshare.com"
+        class="inline-flex items-center gap-2 rounded-xl bg-honey-500 px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-honey-600 focus:outline-none focus:ring-2 focus:ring-honey-400 focus:ring-offset-2"
+      >
+        Try the Demo &rarr;
+      </a>
+      <a
+        href="https://github.com/nacho-labs-llc/fridgeshare"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-xl border-2 border-warm-200 bg-white px-8 py-4 text-base font-semibold text-warm-800 shadow-sm transition hover:border-warm-300 hover:bg-warm-50"
+      >
+        Self-Host Free &rarr;
+      </a>
+    </div>
+
+    <div class="mt-16 flex flex-wrap justify-center gap-3">
+      {[
+        { emoji: "🧲", bg: "bg-red-100" },
+        { emoji: "📝", bg: "bg-yellow-100" },
+        { emoji: "📸", bg: "bg-blue-100" },
+        { emoji: "✏️", bg: "bg-green-100" },
+        { emoji: "🌟", bg: "bg-purple-100" },
+        { emoji: "😄", bg: "bg-pink-100" },
+      ].map(item => (
+        <div class={`flex h-16 w-16 items-center justify-center rounded-2xl ${item.bg} shadow-sm text-3xl rotate-[-2deg] hover:rotate-0 transition-transform`}>
+          {item.emoji}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

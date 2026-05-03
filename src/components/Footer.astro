@@ -1,0 +1,29 @@
+---
+const links = [
+  { label: "GitHub", href: "https://github.com/nacho-labs-llc/fridgeshare" },
+  { label: "Documentation", href: "https://docs.fridgeshare.com" },
+  { label: "Nacho Labs", href: "https://nacholabs.com" },
+];
+---
+<footer class="border-t border-warm-100 bg-white px-6 py-10">
+  <div class="mx-auto max-w-5xl flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+    <div class="flex items-center gap-1 font-semibold text-warm-800">
+      🧲 <span>FridgeShare</span>
+    </div>
+    <nav class="flex gap-6">
+      {links.map(link => (
+        <a
+          href={link.href}
+          target={link.href.startsWith("https") ? "_blank" : undefined}
+          rel={link.href.startsWith("https") ? "noopener noreferrer" : undefined}
+          class="text-sm text-warm-600 hover:text-warm-900 transition"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <p class="text-xs text-warm-500">
+      © 2026 Nacho Labs LLC &middot; MIT Licensed (self-hosted)
+    </p>
+  </div>
+</footer>

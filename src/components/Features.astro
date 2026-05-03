@@ -1,0 +1,52 @@
+---
+const features = [
+  {
+    emoji: "🔡",
+    title: "Letter Magnets",
+    description: "Alphabet magnets with Classic Plastic, Foam Bath, Wooden Block, and Schoolhouse styles, plus size presets.",
+  },
+  {
+    emoji: "📝",
+    title: "Sticky Notes",
+    description: "Add short notes with paper styles like Yellow Sticky, Lined Paper, Grocery List, and Index Card.",
+  },
+  {
+    emoji: "📷",
+    title: "Photos",
+    description: "Upload or drag in images, choose a frame style, resize them, and add optional captions.",
+  },
+  {
+    emoji: "😄",
+    title: "Emoji",
+    description: "Pick from built-in emoji categories and place large emoji pieces anywhere on the board.",
+  },
+  {
+    emoji: "✏️",
+    title: "Whiteboards",
+    description: "Add a dry-erase board, double-click it, and draw quick notes or sketches with marker colors.",
+  },
+  {
+    emoji: "🎨",
+    title: "Surface Themes",
+    description: "Switch the fridge surface between Classic White, Brushed Stainless, Retro Mint, Warm Cream, and Worn White.",
+  },
+];
+---
+<section class="bg-white px-6 py-20 sm:py-28">
+  <div class="mx-auto max-w-5xl">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-warm-900 sm:text-4xl">What you can put on the board</h2>
+      <p class="mt-4 text-lg text-warm-700">The app is built around the same things households already leave on a fridge.</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map(feature => (
+        <div class="group rounded-2xl border border-warm-100 bg-warm-50 p-6 transition hover:border-honey-200 hover:bg-honey-50">
+          <div class="mb-4 text-4xl">{feature.emoji}</div>
+          <h3 class="text-lg font-semibold text-warm-900">{feature.title}</h3>
+          <p class="mt-2 text-sm text-warm-700 leading-relaxed">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

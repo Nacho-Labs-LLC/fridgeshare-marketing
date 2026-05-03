@@ -1,0 +1,43 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Create a board",
+    description: "Give your board a name and slug. Takes about five seconds.",
+  },
+  {
+    number: "2",
+    title: "Share the link",
+    description: "Send the edit URL to anyone who should be able to add things. Or share it without the token for view-only.",
+  },
+  {
+    number: "3",
+    title: "Decorate together",
+    description: "Everyone with the edit link can add notes, photos, magnets, emoji, and whiteboards. Shared boards sync changes in the background.",
+  },
+];
+---
+<section class="bg-honey-50 px-6 py-20 sm:py-28">
+  <div class="mx-auto max-w-4xl">
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-warm-900 sm:text-4xl">Up and running in 30 seconds</h2>
+    </div>
+
+    <div class="mt-14 grid gap-8 sm:grid-cols-3">
+      {steps.map(step => (
+        <div class="flex flex-col items-center text-center">
+          <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-honey-500 text-2xl font-bold text-white shadow-md">
+            {step.number}
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-warm-900">{step.title}</h3>
+          <p class="mt-2 text-sm text-warm-700 leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-12 text-center text-sm text-warm-700 max-w-xl mx-auto">
+      <strong>Security note:</strong> The edit token lives in the URL fragment; it's never sent to the server in page loads.
+      Share the full URL (with <code class="rounded bg-white px-1 py-0.5 font-mono text-xs">#token</code>) for edit access, strip it for view-only.
+    </p>
+  </div>
+</section>
