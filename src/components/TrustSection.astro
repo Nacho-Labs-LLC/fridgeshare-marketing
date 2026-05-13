@@ -1,0 +1,56 @@
+---
+const principles = [
+  {
+    title: 'No accounts',
+    body: 'There is no sign-up, no login, no session management. Board access is granted by the URL fragment. Lose the token, look it up in the JSON file.',
+  },
+  {
+    title: 'No cloud dependency',
+    body: 'The server stores board state as JSON files on disk. No managed database, no external API, no service that can disappear or change its pricing.',
+  },
+  {
+    title: 'No telemetry',
+    body: 'The app makes no outbound network calls. Nothing phones home. Nothing is measured externally. Your board activity stays on your hardware.',
+  },
+  {
+    title: 'No version lock-in',
+    body: 'Board files are plain JSON with a documented structure. You can read them, back them up, and migrate them without any special tooling.',
+  },
+];
+---
+<section class="border-t border-rule bg-sage-50 px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-14">
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-sage-700 opacity-60">Operating model</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+        Explicit about what it <em class="italic text-sage-600">doesn't</em> do.
+      </h2>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+        The simplest way to build trust with self-hosters is to keep the scope narrow and make the operating model legible. FridgeShare does this by staying out of infrastructure it doesn't need.
+      </p>
+    </div>
+
+    <div class="grid gap-px bg-rule sm:grid-cols-2">
+      {principles.map((item) => (
+        <div class="bg-sage-50 p-8 hover:bg-white transition-colors group">
+          <h3 class="font-display text-xl font-semibold text-ink group-hover:text-sage-700 transition-colors">
+            {item.title}
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-px bg-rule">
+      <div class="bg-sage-50 px-8 py-6">
+        <p class="text-sm text-muted">
+          For public deployments: set
+          <code class="mx-1 rounded bg-white px-1.5 py-0.5 font-mono text-xs text-ink border border-rule">SELFHOST_ADMIN_TOKEN</code>
+          and back up the
+          <code class="mx-1 rounded bg-white px-1.5 py-0.5 font-mono text-xs text-ink border border-rule">data/</code>
+          directory. Everything else is optional configuration.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

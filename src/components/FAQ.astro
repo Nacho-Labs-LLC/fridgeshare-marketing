@@ -1,42 +1,49 @@
 ---
 const faqs = [
   {
-    question: 'Do I need an account?',
-    answer: 'No. FridgeShare does not use hosted accounts. Editing is granted by the full board URL with its token fragment.',
+    q: 'Do I need a domain name or SSL?',
+    a: 'No. It works fine on a local IP or hostname inside your network. If you expose it publicly, put it behind a reverse proxy that handles SSL — Caddy or nginx both work well.',
   },
   {
-    question: 'Can I share a read-only link?',
-    answer: 'Yes. Share the board URL without the #token fragment and people can view without editing.',
+    q: 'Do I need an account to view or edit a board?',
+    a: 'No. Editing is granted by the full URL including its #token fragment. Viewing is granted by the URL without the fragment. There are no user accounts.',
   },
   {
-    question: 'Can I run it on my own server or NAS?',
-    answer: 'That is the intended path. Docker Compose is the recommended setup, and the default data volume keeps board files and uploads on your hardware.',
+    q: 'How do I back up my boards?',
+    a: 'Back up the entire data/ directory. It contains boards.json (the directory), fridges/<slug>.json (board state), and uploads/ (image files). A simple tar -czf backup.tgz data covers all three.',
   },
   {
-    question: 'What should I do before exposing it publicly?',
-    answer: 'Set SELFHOST_ADMIN_TOKEN first so board creation and deletion are not left open, then make sure the mounted data directory is being backed up.',
+    q: 'Can multiple people edit at the same time?',
+    a: 'Changes from multiple editors are merged using patch operations. The last writer for any individual item wins. It handles concurrent household use well — it is not built for real-time collaborative document editing.',
+  },
+  {
+    q: 'What happens if I forget the admin token?',
+    a: 'If you did not set SELFHOST_ADMIN_TOKEN via env, a token was auto-generated and saved to data/.admin-token on first startup. Retrieve it with: cat ./data/.admin-token',
+  },
+  {
+    q: 'Can I run it on a Raspberry Pi?',
+    a: 'Yes. The server is plain Node.js with no native addons. Multi-architecture Docker images are available. A Pi 4 with 2GB RAM is more than enough for household use.',
   },
 ];
 ---
-<section id="faq" class="bg-white px-6 py-20 sm:py-28">
-  <div class="mx-auto max-w-4xl">
-    <div class="text-center">
-      <span class="inline-flex rounded-full border border-honey-200 bg-honey-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-honey-600">
-        FAQ
-      </span>
-      <h2 class="mt-5 text-3xl font-bold tracking-tight text-warm-900 sm:text-4xl">Short answers before you click away</h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-warm-700">
-        Enough detail to remove the obvious uncertainty. The rest lives in the docs.
-      </p>
-    </div>
+<section id="faq" class="border-t border-rule px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid gap-16 lg:grid-cols-[220px_1fr]">
+      <div class="lg:pt-1">
+        <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted">FAQ</p>
+        <h2 class="mt-3 font-display text-2xl font-semibold text-ink">
+          Common<br/>questions
+        </h2>
+      </div>
 
-    <div class="mt-12 space-y-4">
-      {faqs.map((faq) => (
-        <div class="rounded-3xl border border-warm-200 bg-warm-50 p-6">
-          <h3 class="text-lg font-semibold text-warm-900">{faq.question}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-warm-700 sm:text-base">{faq.answer}</p>
-        </div>
-      ))}
+      <dl class="divide-y divide-rule">
+        {faqs.map((faq) => (
+          <div class="py-7">
+            <dt class="font-display text-[1.1rem] font-semibold italic text-ink">{faq.q}</dt>
+            <dd class="mt-3 text-sm leading-relaxed text-muted max-w-2xl">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>

@@ -3,27 +3,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#faf8f3',
-        honey: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
+        paper: '#F4F0E6',
+        parchment: '#EAE4D4',
+        fridge: '#E2EBE2',
+        ink: '#1A1714',
+        muted: '#7A7065',
+        sage: {
+          DEFAULT: '#2F6B50',
+          50: '#EEF4F0',
+          100: '#D4E8DC',
+          600: '#2F6B50',
+          700: '#1E4A36',
+          900: '#0F2A1E',
         },
-        warm: {
-          50: '#fdfaf6',
-          100: '#f7f0e4',
-          200: '#ede0ca',
-          700: '#6b4f35',
-          800: '#4a3728',
-          900: '#2d2015',
-        }
+        clay: {
+          DEFAULT: '#CE5A28',
+          50: '#FDF1EB',
+          100: '#F8D9C9',
+          600: '#CE5A28',
+          700: '#A84420',
+        },
+        rule: '#CFC8B8',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Menlo', 'monospace'],
+      },
     }
   },
   plugins: [],

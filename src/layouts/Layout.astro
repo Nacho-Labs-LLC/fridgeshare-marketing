@@ -3,9 +3,12 @@ interface Props {
   title?: string;
   description?: string;
 }
+
+const canonicalUrl = 'https://fridgeshare.com';
+const socialImage = 'https://fridgeshare.com/og-fridgeshare.svg';
 const {
-  title = "FridgeShare - Your household's shared space",
-  description = "A self-hosted fridge board for your household. Add notes, photos, letter magnets, emoji, and whiteboards. No accounts needed; just share the link.",
+  title = 'FridgeShare — self-hosted household board',
+  description = 'A virtual fridge door for your household. Sticky notes, letter magnets, photos, and drawings on a shared board you run yourself. No accounts. No cloud.',
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -15,15 +18,48 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://fridgeshare.com" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={socialImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-cream font-sans text-warm-900 antialiased">
+  <body class="bg-paper font-sans text-ink antialiased">
     <slot />
   </body>
 </html>
+
+<style is:global>
+  ::selection {
+    background: #D4E8DC;
+    color: #0F2A1E;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Grain overlay across the entire page */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+</style>

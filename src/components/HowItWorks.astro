@@ -1,43 +1,63 @@
 ---
-const steps = [
-  {
-    number: "1",
-    title: "Create a board",
-    description: "Give your board a name and slug. Takes about five seconds.",
-  },
-  {
-    number: "2",
-    title: "Share the link",
-    description: "Send the edit URL to anyone who should be able to add things. Or share it without the token for view-only.",
-  },
-  {
-    number: "3",
-    title: "Decorate together",
-    description: "Everyone with the edit link can add notes, photos, magnets, emoji, and whiteboards. Shared boards sync changes in the background.",
-  },
-];
 ---
-<section class="bg-honey-50 px-6 py-20 sm:py-28">
-  <div class="mx-auto max-w-4xl">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold text-warm-900 sm:text-4xl">Up and running in 30 seconds</h2>
+<section id="how-it-works" class="border-t border-rule bg-ink px-6 py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-16">
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-sage-100 opacity-60">Sharing model</p>
+      <h2 class="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl">
+        One URL. <em class="text-sage-100 opacity-80">Two modes.</em>
+      </h2>
     </div>
 
-    <div class="mt-14 grid gap-8 sm:grid-cols-3">
-      {steps.map(step => (
-        <div class="flex flex-col items-center text-center">
-          <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-honey-500 text-2xl font-bold text-white shadow-md">
-            {step.number}
+    <div class="grid gap-16 lg:grid-cols-[1fr_1fr]">
+      <!-- The URL breakdown -->
+      <div>
+        <p class="text-sm leading-relaxed text-white opacity-70 max-w-md">
+          Every board has a slug and an edit token. The token lives in the URL fragment — browsers never send fragments to the server. The client reads it and sends it only when saving.
+        </p>
+
+        <div class="mt-10 space-y-3">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-white opacity-40">Board URL</p>
+          <div class="overflow-x-auto rounded-lg border border-white/10 bg-white/5 px-5 py-4">
+            <code class="font-mono text-sm text-white leading-relaxed whitespace-nowrap">
+              <span class="opacity-40">https://your-server</span><span class="text-sage-100">/b/kitchen-board</span><span class="opacity-40">#</span><span class="text-clay-DEFAULT opacity-90">abcdef123456...</span>
+            </code>
           </div>
-          <h3 class="mt-5 text-lg font-semibold text-warm-900">{step.title}</h3>
-          <p class="mt-2 text-sm text-warm-700 leading-relaxed">{step.description}</p>
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="rounded-md border border-white/10 bg-white/5 p-4">
+              <p class="font-mono text-xs text-sage-100 opacity-80">with #token</p>
+              <p class="mt-2 text-sm text-white opacity-60">Full edit access</p>
+            </div>
+            <div class="rounded-md border border-white/10 bg-white/5 p-4">
+              <p class="font-mono text-xs text-white opacity-40">without fragment</p>
+              <p class="mt-2 text-sm text-white opacity-60">View only</p>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
+      </div>
 
-    <p class="mt-12 text-center text-sm text-warm-700 max-w-xl mx-auto">
-      <strong>Security note:</strong> The edit token lives in the URL fragment; it's never sent to the server in page loads.
-      Share the full URL (with <code class="rounded bg-white px-1 py-0.5 font-mono text-xs">#token</code>) for edit access, strip it for view-only.
-    </p>
+      <!-- Steps -->
+      <div class="space-y-0 divide-y divide-white/10">
+        {[
+          { n: '01', title: 'Create a board', body: 'Open the directory at /, give the board a name. A random slug is suggested. Create and get the full edit URL back.' },
+          { n: '02', title: 'Bookmark the full URL', body: 'The URL with the #token is your edit link. Store it like a password — anyone who has it can change the board.' },
+          { n: '03', title: 'Share a read-only link', body: 'Copy the same URL and remove everything from # onward. That link shows the board but disables all edits.' },
+        ].map((step) => (
+          <div class="py-7 flex gap-6">
+            <span class="font-mono text-xs text-white opacity-25 pt-1 flex-shrink-0 w-6">{step.n}</span>
+            <div>
+              <h3 class="text-sm font-semibold text-white">{step.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-white opacity-55">{step.body}</p>
+            </div>
+          </div>
+        ))}
+
+        <div class="py-7">
+          <p class="text-xs leading-relaxed text-white opacity-40">
+            If you lose the edit token, recover it from <code class="font-mono text-white opacity-60">data/fridges/&lt;slug&gt;.json</code> on the host — look for the <code class="font-mono text-white opacity-60">"editToken"</code> field.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

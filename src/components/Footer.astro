@@ -1,56 +1,38 @@
 ---
-const productLinks = [
-  { label: 'Preview', href: '#preview' },
-  { label: 'Sharing model', href: '#how-it-works' },
-  { label: 'Self-hosting path', href: '#self-host' },
-  { label: 'FAQ', href: '#faq' },
-];
-
-const externalLinks = [
-  { label: 'Self-hosting guide', href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/SELF_HOSTING.md' },
-  { label: 'GitHub', href: 'https://github.com/nacho-labs-llc/fridgeshare' },
-  { label: 'Nacho Labs', href: 'https://nacholabs.com' },
-];
 ---
-<footer class="border-t border-warm-100 bg-white px-6 py-12">
-  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+<footer class="border-t border-rule bg-ink px-6 py-12">
+  <div class="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
     <div>
-      <div class="flex items-center gap-2 font-semibold text-warm-900">
-        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-honey-100 text-lg shadow-sm">🧲</span>
-        <span>FridgeShare</span>
-      </div>
-      <p class="mt-4 max-w-md text-sm leading-relaxed text-warm-700">
-        A self-hosted virtual fridge board for households that want shared notes, photos, magnets, and doodles without accounts or cloud lock-in.
+      <a href="#top" class="font-display text-base font-semibold italic text-white hover:text-sage-100 transition-colors">
+        FridgeShare
+      </a>
+      <p class="mt-2 max-w-xs text-xs leading-relaxed text-white opacity-40">
+        A self-hosted household board. MIT licensed. Built by Nacho Labs LLC.
       </p>
     </div>
 
-    <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-warm-900">On this page</h2>
-      <nav class="mt-4 flex flex-col gap-3">
-        {productLinks.map((link) => (
-          <a href={link.href} class="text-sm text-warm-600 transition hover:text-warm-900">{link.label}</a>
-        ))}
-      </nav>
-    </div>
-
-    <div>
-      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-warm-900">Links</h2>
-      <nav class="mt-4 flex flex-col gap-3">
-        {externalLinks.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm text-warm-600 transition hover:text-warm-900"
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-    </div>
+    <nav class="flex flex-wrap gap-x-8 gap-y-3">
+      {[
+        { label: 'Self-hosting guide', href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/SELF_HOSTING.md' },
+        { label: 'Architecture', href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/ARCHITECTURE.md' },
+        { label: 'GitHub', href: 'https://github.com/nacho-labs-llc/fridgeshare' },
+        { label: 'Nacho Labs', href: 'https://nacholabs.com' },
+      ].map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-white opacity-40 hover:opacity-80 transition-opacity"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
   </div>
 
-  <div class="mx-auto mt-10 max-w-6xl border-t border-warm-100 pt-6 text-xs text-warm-500">
-    © 2026 Nacho Labs LLC · MIT licensed · built from a personal family project and packaged for other self-hosters
+  <div class="mx-auto mt-10 max-w-6xl border-t border-white/10 pt-6">
+    <p class="font-mono text-xs text-white opacity-20">
+      © 2026 Nacho Labs LLC &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; No cookies &nbsp;·&nbsp; No tracking
+    </p>
   </div>
 </footer>

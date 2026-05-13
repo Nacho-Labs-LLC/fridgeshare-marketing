@@ -1,85 +1,300 @@
 ---
-const proofPoints = [
-  'Self-hosted by default',
-  'No accounts or tracking',
-  'Household sharing with edit and view links',
-  'Open source and MIT licensed',
-];
 ---
-<section id="top" class="relative overflow-hidden bg-gradient-to-b from-honey-50 via-cream to-white px-6 pb-20 pt-16 sm:pb-28 sm:pt-24">
-  <div class="absolute inset-x-0 top-0 h-56 bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.18),_transparent_65%)]"></div>
+<section id="top" class="relative min-h-screen pt-20">
+  <!-- Subtle horizontal rule pattern background -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, #1A1714 0px, #1A1714 1px, transparent 1px, transparent 32px);"></div>
 
-  <div class="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+  <div class="relative mx-auto grid max-w-6xl items-center gap-16 px-6 py-20 lg:grid-cols-[1fr_480px] lg:py-28">
+
+    <!-- Left: Copy -->
     <div>
-      <div class="inline-flex items-center gap-2 rounded-full border border-honey-200 bg-white px-4 py-1.5 text-sm font-medium text-warm-700 shadow-sm">
-        <span class="h-2 w-2 rounded-full bg-honey-400"></span>
-        Personal project • family-tested • packaged for other self-hosters
-      </div>
-
-      <h1 class="mt-6 text-5xl font-bold tracking-tight text-warm-900 sm:text-6xl lg:text-7xl">
-        A virtual fridge door for your household
-      </h1>
-
-      <p class="mt-6 max-w-2xl text-xl leading-relaxed text-warm-700">
-        Put notes, grocery lists, photos, magnets, emoji, and doodles on a shared board you run yourself. No accounts, no SaaS baggage, just one board you can share with your household.
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.25em] text-muted">
+        Self-hosted &nbsp;·&nbsp; Docker Compose &nbsp;·&nbsp; MIT
       </p>
 
-      <div class="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
-        <a
-          href="#self-host"
-          class="inline-flex items-center gap-2 rounded-xl bg-honey-500 px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-honey-600 focus:outline-none focus:ring-2 focus:ring-honey-400 focus:ring-offset-2"
-        >
-          Run with Docker →
+      <h1 class="mt-6 font-display text-5xl font-semibold leading-[1.1] text-ink sm:text-6xl lg:text-7xl">
+        Your household.<br/>
+        <em class="not-italic text-sage-600">Your server.</em><br/>
+        Your board.
+      </h1>
+
+      <p class="mt-7 max-w-lg text-lg leading-relaxed text-muted">
+        Sticky notes, letter magnets, photos, and drawings — shared between the people in your house. Runs on your own hardware. No accounts. No cloud service. Data you actually keep.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a href="#self-host" class="group inline-flex items-center gap-2 text-base font-semibold text-sage-600 hover:text-sage-700 transition-colors">
+          <span class="inline-block transition-transform group-hover:translate-x-0.5">→</span>
+          Get started with Docker
         </a>
         <a
           href="https://github.com/nacho-labs-llc/fridgeshare"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-xl border-2 border-warm-200 bg-white px-8 py-4 text-base font-semibold text-warm-800 shadow-sm transition hover:border-warm-300 hover:bg-warm-50"
+          class="inline-flex items-center gap-1.5 text-base font-medium text-muted hover:text-ink transition-colors"
         >
-          View on GitHub →
+          View source <span aria-hidden="true">↗</span>
         </a>
       </div>
 
-      <div class="mt-10 flex flex-wrap gap-3">
-        {proofPoints.map((item) => (
-          <div class="rounded-full border border-warm-200 bg-white px-4 py-2 text-sm font-medium text-warm-700 shadow-sm">
-            {item}
-          </div>
+      <div class="mt-14 flex flex-wrap gap-x-6 gap-y-2">
+        {[
+          'No accounts or tracking',
+          'Edit tokens in the URL fragment',
+          'Runs as a Node HTTP server',
+          'Data stored as plain JSON',
+        ].map((fact) => (
+          <span class="text-sm text-muted before:mr-2 before:text-rule before:content-['—']">{fact}</span>
         ))}
       </div>
     </div>
 
-    <div class="rounded-[2rem] border border-warm-200 bg-white/80 p-5 shadow-[0_24px_80px_rgba(45,32,21,0.08)] backdrop-blur-sm sm:p-6">
-      <div class="rounded-[1.75rem] border border-warm-100 bg-gradient-to-br from-honey-100 via-white to-warm-50 p-6">
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl bg-yellow-100 p-4 shadow-sm">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-warm-700">Household board</p>
-            <p class="mt-3 text-lg font-semibold text-warm-900">One shared place for the little things</p>
-            <p class="mt-2 text-sm leading-relaxed text-warm-700">
-              Grocery notes, pickup reminders, lunch ideas, photo drops, doodles, and magnets all stay visible together.
-            </p>
+    <!-- Right: CSS fridge door illustration -->
+    <div class="fridge-wrapper" aria-hidden="true">
+      <div class="fridge-door">
+        <!-- Handle -->
+        <div class="fridge-handle"></div>
+
+        <!-- Magnets: top row -->
+        <div class="magnet-row" style="top: 38px; left: 32px; gap: 6px;">
+          <div class="mag" style="background:#e05252; transform:rotate(-2deg)">F</div>
+          <div class="mag" style="background:#3b82f6; transform:rotate(1deg)">R</div>
+          <div class="mag" style="background:#f59e0b; transform:rotate(-1deg)">I</div>
+          <div class="mag" style="background:#2F6B50; transform:rotate(2deg)">D</div>
+          <div class="mag" style="background:#8b5cf6; transform:rotate(-1deg)">G</div>
+          <div class="mag" style="background:#e05252; transform:rotate(1deg)">E</div>
+        </div>
+
+        <!-- Sticky note: shopping list -->
+        <div class="sticky" style="top: 100px; left: 28px; transform: rotate(-1.5deg); background: #FEF08A;">
+          <p class="sticky-heading">this week</p>
+          <ul>
+            <li>☐ &nbsp;milk</li>
+            <li>☐ &nbsp;sourdough</li>
+            <li>☐ &nbsp;cheddar</li>
+            <li>☑ &nbsp;<s>eggs</s></li>
+          </ul>
+        </div>
+
+        <!-- Second sticky: reminder -->
+        <div class="sticky" style="top: 96px; right: 28px; transform: rotate(2deg); background: #bbf7d0;">
+          <p class="sticky-heading">thursday</p>
+          <p style="margin-top:4px; font-size:13px; line-height:1.5;">Pick up kids<br/>at 3:30 pm 🚗</p>
+        </div>
+
+        <!-- Emoji magnets -->
+        <div style="position:absolute; bottom: 100px; left: 32px; display:flex; gap:10px; align-items:center;">
+          <div class="emoji-mag" style="transform:rotate(-3deg)">⭐</div>
+          <div class="emoji-mag" style="transform:rotate(2deg)">🍕</div>
+          <div class="emoji-mag" style="transform:rotate(-1deg)">❄️</div>
+        </div>
+
+        <!-- Mini whiteboard -->
+        <div class="mini-board" style="bottom: 36px; left: 28px; right: 28px;">
+          <p class="board-label">whiteboard</p>
+          <svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; margin-top:6px;">
+            <path d="M10 40 Q40 10 70 35 T130 25 T200 38" stroke="#374151" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+            <path d="M15 50 Q55 45 95 48 T185 45" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+            <text x="150" y="20" font-size="11" fill="#6b7280" font-family="sans-serif" opacity="0.7">done ✓</text>
+          </svg>
+        </div>
+
+        <!-- Polaroid photo placeholder -->
+        <div class="polaroid" style="top: 230px; right: 22px; transform: rotate(-2.5deg);">
+          <div class="polaroid-img">
+            <span style="font-size:28px;">🏡</span>
           </div>
-          <div class="rounded-2xl bg-warm-900 p-4 text-warm-50 shadow-sm">
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-honey-100">How sharing works</p>
-            <p class="mt-3 text-sm leading-relaxed">
-              Share the full URL with its <code class="rounded bg-white/10 px-1 py-0.5 font-mono text-xs">#token</code> to edit. Remove the fragment for read-only viewing.
-            </p>
-          </div>
-          <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-warm-100 sm:col-span-2">
-            <div class="flex flex-wrap gap-2 text-2xl">
-              <span>📝</span>
-              <span>🧲</span>
-              <span>📸</span>
-              <span>😀</span>
-              <span>✏️</span>
-            </div>
-            <p class="mt-3 text-sm leading-relaxed text-warm-700">
-              The product stays intentionally small: create a board, keep it on your own server, and share it with the people who actually use the fridge door at home.
-            </p>
+          <p class="polaroid-caption">home 2026</p>
+        </div>
+
+        <!-- Scattered letter magnets: bottom-right cluster -->
+        <div style="position:absolute; bottom: 106px; right: 30px; display:flex; flex-direction:column; gap:4px; align-items:flex-end;">
+          <div style="display:flex; gap:5px;">
+            <div class="mag mag-sm" style="background:#f59e0b; transform:rotate(2deg)">L</div>
+            <div class="mag mag-sm" style="background:#e05252; transform:rotate(-1deg)">O</div>
+            <div class="mag mag-sm" style="background:#3b82f6; transform:rotate(1.5deg)">V</div>
+            <div class="mag mag-sm" style="background:#2F6B50; transform:rotate(-2deg)">E</div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Bottom rule -->
+  <div class="mx-auto max-w-6xl border-t border-rule px-6"></div>
 </section>
+
+<style>
+  .fridge-wrapper {
+    perspective: 800px;
+  }
+
+  .fridge-door {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    height: 580px;
+    background: #DDE8DD;
+    border-radius: 18px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.6),
+      0 4px 6px rgba(0,0,0,0.04),
+      0 16px 40px rgba(0,0,0,0.08),
+      0 40px 80px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+    /* Subtle fridge texture */
+    background-image:
+      linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 40%),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0) 2px);
+  }
+
+  .fridge-handle {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 80px;
+    background: linear-gradient(90deg, #c8c8c8, #e8e8e8, #c8c8c8);
+    border-radius: 5px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+    z-index: 10;
+  }
+
+  .magnet-row {
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+
+  .mag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 38px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.3);
+    letter-spacing: -0.01em;
+    flex-shrink: 0;
+  }
+
+  .mag-sm {
+    width: 26px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+
+  .emoji-mag {
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .sticky {
+    position: absolute;
+    width: 140px;
+    padding: 10px 11px 12px;
+    border-radius: 2px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #2c2c2c;
+    /* sticky note peel at top */
+    background-image: linear-gradient(rgba(0,0,0,0.04) 0px, transparent 3px);
+  }
+
+  .sticky-heading {
+    font-size: 9px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .sticky ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .polaroid {
+    position: absolute;
+    background: white;
+    padding: 8px 8px 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+    width: 100px;
+  }
+
+  .polaroid-img {
+    width: 84px;
+    height: 72px;
+    background: #e0e7e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1px;
+  }
+
+  .polaroid-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .mini-board {
+    position: absolute;
+    background: #f8faf8;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 8px 10px 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .board-label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+
+  @keyframes float-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fridge-door > * {
+    animation: float-in 0.5s ease both;
+  }
+  .fridge-door > *:nth-child(1) { animation-delay: 0.1s; }
+  .fridge-door > *:nth-child(2) { animation-delay: 0.15s; }
+  .fridge-door > *:nth-child(3) { animation-delay: 0.2s; }
+  .fridge-door > *:nth-child(4) { animation-delay: 0.25s; }
+  .fridge-door > *:nth-child(5) { animation-delay: 0.3s; }
+  .fridge-door > *:nth-child(6) { animation-delay: 0.35s; }
+  .fridge-door > *:nth-child(7) { animation-delay: 0.4s; }
+  .fridge-door > *:nth-child(8) { animation-delay: 0.45s; }
+</style>
