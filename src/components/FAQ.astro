@@ -6,7 +6,7 @@ const faqs = [
   },
   {
     q: 'Do I need an account to view or edit a board?',
-    a: 'No. Editing is granted by the full URL including its #token fragment. Viewing is granted by the URL without the fragment. There are no user accounts.',
+    a: 'No. Editing is granted by the full URL including its #token fragment. Viewing is the same URL without the fragment. There are no user accounts.',
   },
   {
     q: 'How do I back up my boards?',
@@ -17,8 +17,8 @@ const faqs = [
     a: 'Changes from multiple editors are merged using patch operations. The last writer for any individual item wins. It handles concurrent household use well — it is not built for real-time collaborative document editing.',
   },
   {
-    q: 'What happens if I forget the admin token?',
-    a: 'If you did not set SELFHOST_ADMIN_TOKEN via env, a token was auto-generated and saved to data/.admin-token on first startup. Retrieve it with: cat ./data/.admin-token',
+    q: 'What if I forget the admin token?',
+    a: 'If you did not set SELFHOST_ADMIN_TOKEN via env, a token was auto-generated on first startup and saved to data/.admin-token. Retrieve it with: cat ./data/.admin-token',
   },
   {
     q: 'Can I run it on a Raspberry Pi?',
@@ -26,24 +26,20 @@ const faqs = [
   },
 ];
 ---
-<section id="faq" class="border-t border-rule px-6 py-20 sm:py-24">
+<section id="faq" class="border-b border-rule px-6 py-20">
   <div class="mx-auto max-w-6xl">
-    <div class="grid gap-16 lg:grid-cols-[220px_1fr]">
-      <div class="lg:pt-1">
-        <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted">FAQ</p>
-        <h2 class="mt-3 font-display text-2xl font-semibold text-ink">
-          Common<br/>questions
-        </h2>
-      </div>
-
-      <dl class="divide-y divide-rule">
-        {faqs.map((faq) => (
-          <div class="py-7">
-            <dt class="font-display text-[1.1rem] font-semibold italic text-ink">{faq.q}</dt>
-            <dd class="mt-3 text-sm leading-relaxed text-muted max-w-2xl">{faq.a}</dd>
-          </div>
-        ))}
-      </dl>
+    <div class="mb-10">
+      <p class="text-xs font-medium uppercase tracking-[0.2em] text-subtle">FAQ</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Common questions</h2>
     </div>
+
+    <dl class="divide-y divide-rule">
+      {faqs.map((faq) => (
+        <div class="py-6 sm:grid sm:grid-cols-[320px_1fr] sm:gap-12">
+          <dt class="text-sm font-semibold text-ink">{faq.q}</dt>
+          <dd class="mt-3 text-sm leading-relaxed text-mid sm:mt-0">{faq.a}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>
