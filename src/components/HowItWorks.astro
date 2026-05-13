@@ -2,20 +2,15 @@
 ---
 <section id="how-it-works" class="border-b border-rule px-6 py-20">
   <div class="mx-auto max-w-6xl">
-    <div class="mb-10">
-      <p class="text-xs font-medium uppercase tracking-[0.2em] text-subtle">Sharing model</p>
-      <h2 class="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-        One URL. Two modes.
-      </h2>
-      <p class="mt-4 max-w-2xl text-base leading-relaxed text-mid">
-        Every board has a slug and an edit token. The token lives in the URL fragment — browsers never send fragments to the server, so it stays private until the client deliberately sends it when saving.
-      </p>
-    </div>
+    <h2 class="mb-2 text-2xl font-bold tracking-tight text-ink">Sharing model</h2>
+    <p class="mb-10 max-w-2xl text-base leading-relaxed text-mid">
+      Every board has a slug and an edit token. The token lives in the URL fragment — browsers never send fragments to the server, so it stays private until the client deliberately sends it when saving.
+    </p>
 
     <!-- URL anatomy -->
     <div class="rounded-xl border border-rule bg-surface overflow-hidden mb-8">
       <div class="border-b border-rule px-5 py-3">
-        <span class="font-mono text-xs text-subtle">Example board URL</span>
+        <span class="font-mono text-xs text-subtle">Board URL</span>
       </div>
       <div class="px-5 py-5 overflow-x-auto">
         <p class="font-mono text-sm sm:text-base whitespace-nowrap">
@@ -24,33 +19,32 @@
       </div>
       <div class="grid border-t border-rule sm:grid-cols-2">
         <div class="border-b border-rule px-5 py-4 sm:border-b-0 sm:border-r">
-          <p class="font-mono text-xs text-pine-600">with #token</p>
-          <p class="mt-1.5 text-sm text-mid">Full edit access. Treat the URL like a password.</p>
+          <p class="font-mono text-xs text-pine-600">with #token → edit</p>
+          <p class="mt-1.5 text-sm text-mid">Anyone with the full URL can change the board. Treat it like a password.</p>
         </div>
         <div class="px-5 py-4">
-          <p class="font-mono text-xs text-subtle">without #token</p>
-          <p class="mt-1.5 text-sm text-mid">View only. Anyone can see it, no one can change anything.</p>
+          <p class="font-mono text-xs text-subtle">without #token → view only</p>
+          <p class="mt-1.5 text-sm text-mid">Anyone can see it. No one can change anything.</p>
         </div>
       </div>
     </div>
 
-    <!-- Steps -->
-    <div class="grid gap-4 sm:grid-cols-3">
+    <div class="grid gap-3 sm:grid-cols-3">
       {[
-        { n: '1', title: 'Create a board',         body: 'Open the directory, keep the suggested slug or pick your own. Click create and get the full edit URL back.' },
-        { n: '2', title: 'Bookmark the full URL',  body: 'The URL with the #token is your edit link. Anyone who has it can change the board.' },
-        { n: '3', title: 'Share a read-only link', body: 'Copy the same URL and remove everything from # onward. That version is view-only.' },
+        { n: '1', title: 'Create a board',         body: 'Open the directory, keep the suggested slug or pick your own.' },
+        { n: '2', title: 'Bookmark the edit URL',  body: 'The returned URL with the #token is your edit link. Save it.' },
+        { n: '3', title: 'Share a read-only link', body: 'Same URL, remove everything from # onward. View-only.' },
       ].map((step) => (
         <div class="rounded-xl border border-rule bg-surface p-5">
-          <span class="text-xs font-semibold text-pine-600">{step.n}</span>
+          <span class="font-mono text-xs text-pine-600">{step.n}</span>
           <h3 class="mt-2 text-sm font-semibold text-ink">{step.title}</h3>
-          <p class="mt-1.5 text-sm leading-relaxed text-mid">{step.body}</p>
+          <p class="mt-1 text-sm leading-relaxed text-mid">{step.body}</p>
         </div>
       ))}
     </div>
 
     <p class="mt-6 text-sm text-subtle">
-      Lost the edit token? Recover it from <code class="font-mono text-xs text-ink">data/fridges/&lt;slug&gt;.json</code> on the host — look for the <code class="font-mono text-xs text-ink">"editToken"</code> field.
+      Lost the edit token? Recover it from <code class="font-mono text-xs text-ink">data/fridges/&lt;slug&gt;.json</code> — look for <code class="font-mono text-xs text-ink">"editToken"</code>.
     </p>
   </div>
 </section>

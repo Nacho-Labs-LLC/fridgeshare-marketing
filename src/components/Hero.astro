@@ -1,68 +1,67 @@
 ---
 const boards = [
-  { name: 'Kitchen Board',  ago: '2 min ago' },
-  { name: 'Grocery List',   ago: '3 hr ago'  },
-  { name: 'Family Photos',  ago: 'yesterday' },
+  { name: 'Kitchen',     ago: '2 min ago' },
+  { name: 'Grocery List', ago: '3 hr ago'  },
+  { name: 'Family',      ago: 'yesterday' },
 ];
 ---
-<section id="top" class="border-b border-rule px-6 pt-32 pb-24">
-  <div class="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_400px]">
+<section id="top" class="border-b border-rule px-6 pb-20 pt-36">
+  <div class="mx-auto max-w-6xl">
 
-    <!-- Copy -->
-    <div>
-      <p class="text-xs font-medium uppercase tracking-[0.2em] text-subtle">
-        Self-hosted &nbsp;·&nbsp; MIT &nbsp;·&nbsp; Docker Compose
-      </p>
+    <!-- Big headline -->
+    <h1 class="max-w-4xl text-[clamp(3rem,8vw,5.5rem)] font-bold leading-[1.06] tracking-tight text-ink">
+      Your household.<br />
+      Your server.<br />
+      <span class="text-pine-600">Your board.</span>
+    </h1>
 
-      <h1 class="mt-5 text-5xl font-bold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-        Your household.<br />
-        Your server.<br />
-        <span class="text-pine-600">Your board.</span>
-      </h1>
+    <div class="mt-10 grid gap-12 lg:grid-cols-[1fr_380px] lg:items-start">
+      <div>
+        <p class="max-w-[460px] text-lg leading-relaxed text-mid">
+          Sticky notes, letter magnets, photos, and drawings — shared with the people in your house. Runs on your own hardware. No accounts. No cloud. Data you actually keep.
+        </p>
 
-      <p class="mt-6 max-w-[480px] text-lg leading-relaxed text-mid">
-        Sticky notes, letter magnets, photos, and drawings — shared with the people in your house. Runs on your own hardware. No accounts. No cloud. Data you actually keep.
-      </p>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="#self-host" class="rounded-lg bg-pine-600 px-5 py-3 text-sm font-semibold text-white hover:bg-pine-700 transition-colors">
+            Get started with Docker →
+          </a>
+          <a
+            href="https://github.com/nacho-labs-llc/fridgeshare"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-mid hover:text-ink transition-colors"
+          >View source ↗</a>
+        </div>
 
-      <div class="mt-8 flex flex-wrap items-center gap-6">
-        <a href="#self-host" class="rounded-lg bg-pine-600 px-5 py-3 text-sm font-semibold text-white hover:bg-pine-700 transition-colors">
-          Get started with Docker →
-        </a>
-        <a
-          href="https://github.com/nacho-labs-llc/fridgeshare"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm font-medium text-mid hover:text-ink transition-colors"
-        >View source ↗</a>
+        <p class="mt-10 font-mono text-xs text-subtle">
+          Self-hosted &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; Docker Compose &nbsp;·&nbsp; Node 20+
+        </p>
+      </div>
+
+      <!-- Board directory mockup -->
+      <div class="rounded-xl border border-rule bg-surface shadow-sm overflow-hidden">
+        <div class="border-b border-rule px-5 py-3 flex items-center justify-between">
+          <span class="text-xs font-semibold text-subtle">Board Directory</span>
+          <span class="font-mono text-xs text-subtle">localhost:4173</span>
+        </div>
+        <div class="divide-y divide-rule">
+          {boards.map((board) => (
+            <div class="flex items-center justify-between px-5 py-4 hover:bg-bg transition-colors cursor-default">
+              <div>
+                <p class="text-sm font-medium text-ink">{board.name}</p>
+                <p class="mt-0.5 font-mono text-xs text-subtle">/b/{board.name.toLowerCase().replace(/ /g, '-')}</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-xs text-subtle">{board.ago}</span>
+                <span class="text-sm text-mid">→</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="border-t border-rule px-5 py-3">
+          <span class="text-sm font-medium text-pine-600">+ New board</span>
+        </div>
       </div>
     </div>
-
-    <!-- Board directory mockup -->
-    <div class="rounded-xl border border-rule bg-surface shadow-sm overflow-hidden">
-      <div class="border-b border-rule px-5 py-3.5 flex items-center justify-between">
-        <span class="text-xs font-semibold uppercase tracking-wide text-subtle">Board Directory</span>
-        <span class="rounded bg-pine-50 px-2 py-0.5 font-mono text-xs text-pine-600">localhost:4173</span>
-      </div>
-
-      <div class="divide-y divide-rule">
-        {boards.map((board) => (
-          <div class="flex items-center justify-between px-5 py-4 hover:bg-bg transition-colors">
-            <div>
-              <p class="text-sm font-medium text-ink">{board.name}</p>
-              <p class="mt-0.5 font-mono text-xs text-subtle">/b/{board.name.toLowerCase().replace(/ /g, '-')}</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="text-xs text-subtle">{board.ago}</span>
-              <span class="text-sm text-mid">→</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div class="border-t border-rule px-5 py-3.5">
-        <button class="text-sm font-medium text-pine-600 hover:text-pine-700 transition-colors">+ New board</button>
-      </div>
-    </div>
-
   </div>
 </section>
