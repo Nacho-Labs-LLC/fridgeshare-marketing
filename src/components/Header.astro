@@ -1,0 +1,39 @@
+---
+const navLinks = [
+  { label: 'Preview', href: '#preview' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Self-host', href: '#self-host' },
+  { label: 'FAQ', href: '#faq' },
+];
+---
+<header class="sticky top-0 z-30 border-b border-warm-100/80 bg-cream/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+    <a href="#top" class="flex items-center gap-2 text-sm font-semibold text-warm-900 sm:text-base">
+      <span class="flex h-9 w-9 items-center justify-center rounded-2xl bg-honey-100 text-lg shadow-sm">🧲</span>
+      <span>FridgeShare</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm text-warm-700 md:flex">
+      {navLinks.map((link) => (
+        <a href={link.href} class="transition hover:text-warm-900">{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/SELF_HOSTING.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden text-sm font-medium text-warm-700 transition hover:text-warm-900 sm:inline"
+      >
+        Docs
+      </a>
+      <a
+        href="#self-host"
+        class="inline-flex items-center rounded-xl bg-honey-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-honey-600 focus:outline-none focus:ring-2 focus:ring-honey-400 focus:ring-offset-2"
+      >
+        Get started
+      </a>
+    </div>
+  </div>
+</header>

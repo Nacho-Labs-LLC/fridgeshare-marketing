@@ -1,29 +1,56 @@
 ---
-const links = [
-  { label: "GitHub", href: "https://github.com/nacho-labs-llc/fridgeshare" },
-  { label: "Documentation", href: "https://docs.fridgeshare.com" },
-  { label: "Nacho Labs", href: "https://nacholabs.com" },
+const productLinks = [
+  { label: 'Preview', href: '#preview' },
+  { label: 'Sharing model', href: '#how-it-works' },
+  { label: 'Self-hosting path', href: '#self-host' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const externalLinks = [
+  { label: 'Self-hosting guide', href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/SELF_HOSTING.md' },
+  { label: 'GitHub', href: 'https://github.com/nacho-labs-llc/fridgeshare' },
+  { label: 'Nacho Labs', href: 'https://nacholabs.com' },
 ];
 ---
-<footer class="border-t border-warm-100 bg-white px-6 py-10">
-  <div class="mx-auto max-w-5xl flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-    <div class="flex items-center gap-1 font-semibold text-warm-800">
-      🧲 <span>FridgeShare</span>
+<footer class="border-t border-warm-100 bg-white px-6 py-12">
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+    <div>
+      <div class="flex items-center gap-2 font-semibold text-warm-900">
+        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-honey-100 text-lg shadow-sm">🧲</span>
+        <span>FridgeShare</span>
+      </div>
+      <p class="mt-4 max-w-md text-sm leading-relaxed text-warm-700">
+        A self-hosted virtual fridge board for households that want shared notes, photos, magnets, and doodles without accounts or cloud lock-in.
+      </p>
     </div>
-    <nav class="flex gap-6">
-      {links.map(link => (
-        <a
-          href={link.href}
-          target={link.href.startsWith("https") ? "_blank" : undefined}
-          rel={link.href.startsWith("https") ? "noopener noreferrer" : undefined}
-          class="text-sm text-warm-600 hover:text-warm-900 transition"
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
-    <p class="text-xs text-warm-500">
-      © 2026 Nacho Labs LLC &middot; MIT Licensed (self-hosted)
-    </p>
+
+    <div>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-warm-900">On this page</h2>
+      <nav class="mt-4 flex flex-col gap-3">
+        {productLinks.map((link) => (
+          <a href={link.href} class="text-sm text-warm-600 transition hover:text-warm-900">{link.label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div>
+      <h2 class="text-sm font-semibold uppercase tracking-[0.16em] text-warm-900">Links</h2>
+      <nav class="mt-4 flex flex-col gap-3">
+        {externalLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-warm-600 transition hover:text-warm-900"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-6xl border-t border-warm-100 pt-6 text-xs text-warm-500">
+    © 2026 Nacho Labs LLC · MIT licensed · built from a personal family project and packaged for other self-hosters
   </div>
 </footer>
