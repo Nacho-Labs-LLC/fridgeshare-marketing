@@ -1,0 +1,56 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="154" y1="48" x2="1050" y2="592" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7DB"/>
+      <stop offset="0.48" stop-color="#FAF8F3"/>
+      <stop offset="1" stop-color="#F7F0E4"/>
+    </linearGradient>
+    <linearGradient id="fridge" x1="721" y1="145" x2="1032" y2="528" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#D6D3D1"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#2D2015" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="40" fill="url(#bg)"/>
+  <circle cx="263" cy="94" r="182" fill="#FBBF24" fill-opacity="0.16"/>
+  <g filter="url(#shadow)">
+    <rect x="692" y="101" width="378" height="428" rx="40" fill="#FCFCFD"/>
+    <rect x="721" y="132" width="320" height="368" rx="32" fill="url(#fridge)"/>
+    <rect x="747" y="161" width="139" height="120" rx="24" transform="rotate(-4 747 161)" fill="#FDE68A"/>
+    <text x="771" y="192" fill="#6B4F35" font-family="Inter, sans-serif" font-size="18" font-weight="700">Groceries</text>
+    <text x="771" y="226" fill="#2D2015" font-family="Inter, sans-serif" font-size="18">• berries</text>
+    <text x="771" y="252" fill="#2D2015" font-family="Inter, sans-serif" font-size="18">• yogurt</text>
+    <text x="771" y="278" fill="#2D2015" font-family="Inter, sans-serif" font-size="18">• taco shells</text>
+    <rect x="908" y="188" width="98" height="121" rx="20" transform="rotate(3 908 188)" fill="white"/>
+    <rect x="920" y="200" width="74" height="74" rx="16" fill="#BFDBFE"/>
+    <text x="926" y="295" fill="#6B4F35" font-family="Inter, sans-serif" font-size="14" font-weight="600">Park photo</text>
+    <rect x="764" y="326" width="197" height="60" rx="24" fill="white" fill-opacity="0.78"/>
+    <rect x="778" y="338" width="26" height="26" rx="9" fill="#FCA5A5"/>
+    <rect x="810" y="338" width="26" height="26" rx="9" fill="#93C5FD"/>
+    <rect x="842" y="338" width="26" height="26" rx="9" fill="#FDE68A"/>
+    <rect x="874" y="338" width="26" height="26" rx="9" fill="#86EFAC"/>
+    <rect x="906" y="338" width="26" height="26" rx="9" fill="#D8B4FE"/>
+    <text x="786" y="357" fill="#2D2015" font-family="Inter, sans-serif" font-size="14" font-weight="800">F</text>
+    <text x="818" y="357" fill="#2D2015" font-family="Inter, sans-serif" font-size="14" font-weight="800">A</text>
+    <text x="850" y="357" fill="#2D2015" font-family="Inter, sans-serif" font-size="14" font-weight="800">M</text>
+    <text x="882" y="357" fill="#2D2015" font-family="Inter, sans-serif" font-size="14" font-weight="800">I</text>
+    <text x="914" y="357" fill="#2D2015" font-family="Inter, sans-serif" font-size="14" font-weight="800">L</text>
+    <rect x="760" y="409" width="166" height="84" rx="24" fill="#D1FAE5"/>
+    <text x="780" y="439" fill="#2D2015" font-family="Inter, sans-serif" font-size="18" font-weight="700">Dinner plan</text>
+    <text x="780" y="468" fill="#6B4F35" font-family="Inter, sans-serif" font-size="18">Soup tonight.</text>
+    <rect x="942" y="387" width="79" height="90" rx="24" fill="white" fill-opacity="0.82"/>
+    <text x="957" y="423" fill="#2D2015" font-family="Inter, sans-serif" font-size="30">😀</text>
+    <text x="989" y="423" fill="#2D2015" font-family="Inter, sans-serif" font-size="30">📸</text>
+    <rect x="957" y="437" width="50" height="25" rx="10" fill="#E0F2FE" stroke="#7DD3FC" stroke-dasharray="5 5"/>
+  </g>
+  <text x="92" y="190" fill="#D97706" font-family="Inter, sans-serif" font-size="20" font-weight="700" letter-spacing="0.22em">FRIDGESHARE</text>
+  <text x="92" y="272" fill="#2D2015" font-family="Inter, sans-serif" font-size="68" font-weight="800">A virtual fridge door</text>
+  <text x="92" y="348" fill="#2D2015" font-family="Inter, sans-serif" font-size="68" font-weight="800">for your household</text>
+  <text x="92" y="418" fill="#6B4F35" font-family="Inter, sans-serif" font-size="30">Self-hosted shared board for notes, photos, magnets, emoji, and doodles.</text>
+  <rect x="92" y="468" width="225" height="56" rx="18" fill="#F59E0B"/>
+  <text x="128" y="503" fill="white" font-family="Inter, sans-serif" font-size="24" font-weight="700">Try the demo</text>
+  <rect x="334" y="468" width="282" height="56" rx="18" fill="white" stroke="#E7DCC7" stroke-width="2"/>
+  <text x="371" y="503" fill="#2D2015" font-family="Inter, sans-serif" font-size="24" font-weight="700">Run with Docker</text>
+</svg>
