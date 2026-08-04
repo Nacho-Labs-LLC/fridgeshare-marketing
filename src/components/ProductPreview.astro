@@ -1,0 +1,31 @@
+---
+const items = [
+  { emoji: '🔤', label: 'Letter magnets',  desc: 'Colorful alphabet tiles with style presets and size controls' },
+  { emoji: '📝', label: 'Sticky notes',    desc: 'Text notes with paper styles and custom colors' },
+  { emoji: '📸', label: 'Photos',          desc: 'Upload images with optional captions and frame styles' },
+  { emoji: '😀', label: 'Emoji magnets',   desc: 'Large emoji tiles for quick reactions and decoration' },
+  { emoji: '✏️', label: 'Drawings',        desc: 'Dry-erase style sketches directly on the board' },
+  { emoji: '🎨', label: 'Themes',          desc: 'Swap the fridge surface between curated styles' },
+];
+---
+<section class="border-b border-rule px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-10 text-2xl font-bold tracking-tight text-ink">What goes on a board</h2>
+
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((item) => (
+        <div class="flex gap-4 rounded-xl border border-rule bg-surface p-5">
+          <span class="text-xl leading-none mt-0.5 flex-shrink-0">{item.emoji}</span>
+          <div>
+            <h3 class="text-sm font-semibold text-ink">{item.label}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-mid">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-6 text-sm text-subtle">
+      Stored as plain JSON in <code class="font-mono text-xs text-ink">data/fridges/&lt;slug&gt;.json</code> — readable, backupable, no proprietary format.
+    </p>
+  </div>
+</section>

@@ -1,43 +1,50 @@
 ---
-const steps = [
-  {
-    number: "1",
-    title: "Create a board",
-    description: "Give your board a name and slug. Takes about five seconds.",
-  },
-  {
-    number: "2",
-    title: "Share the link",
-    description: "Send the edit URL to anyone who should be able to add things. Or share it without the token for view-only.",
-  },
-  {
-    number: "3",
-    title: "Decorate together",
-    description: "Everyone with the edit link can add notes, photos, magnets, emoji, and whiteboards. Shared boards sync changes in the background.",
-  },
-];
 ---
-<section class="bg-honey-50 px-6 py-20 sm:py-28">
-  <div class="mx-auto max-w-4xl">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold text-warm-900 sm:text-4xl">Up and running in 30 seconds</h2>
+<section id="how-it-works" class="border-b border-rule px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-2 text-2xl font-bold tracking-tight text-ink">Sharing model</h2>
+    <p class="mb-10 max-w-2xl text-base leading-relaxed text-mid">
+      Every board has a slug and an edit token. The token lives in the URL fragment — browsers never send fragments to the server, so it stays private until the client deliberately sends it when saving.
+    </p>
+
+    <!-- URL anatomy -->
+    <div class="rounded-xl border border-rule bg-surface overflow-hidden mb-8">
+      <div class="border-b border-rule px-5 py-3">
+        <span class="font-mono text-xs text-subtle">Board URL</span>
+      </div>
+      <div class="px-5 py-5 overflow-x-auto">
+        <p class="font-mono text-sm sm:text-base whitespace-nowrap">
+          <span class="text-subtle">https://your-server</span><span class="text-ink font-semibold">/b/kitchen-board</span><span class="text-subtle">#</span><span class="text-pine-600 font-semibold">abcdef123456...</span>
+        </p>
+      </div>
+      <div class="grid border-t border-rule sm:grid-cols-2">
+        <div class="border-b border-rule px-5 py-4 sm:border-b-0 sm:border-r">
+          <p class="font-mono text-xs text-pine-600">with #token → edit</p>
+          <p class="mt-1.5 text-sm text-mid">Anyone with the full URL can change the board. Treat it like a password.</p>
+        </div>
+        <div class="px-5 py-4">
+          <p class="font-mono text-xs text-subtle">without #token → view only</p>
+          <p class="mt-1.5 text-sm text-mid">Anyone can see it. No one can change anything.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="mt-14 grid gap-8 sm:grid-cols-3">
-      {steps.map(step => (
-        <div class="flex flex-col items-center text-center">
-          <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-honey-500 text-2xl font-bold text-white shadow-md">
-            {step.number}
-          </div>
-          <h3 class="mt-5 text-lg font-semibold text-warm-900">{step.title}</h3>
-          <p class="mt-2 text-sm text-warm-700 leading-relaxed">{step.description}</p>
+    <div class="grid gap-3 sm:grid-cols-3">
+      {[
+        { n: '1', title: 'Create a board',         body: 'Open the directory, keep the suggested slug or pick your own.' },
+        { n: '2', title: 'Bookmark the edit URL',  body: 'The returned URL with the #token is your edit link. Save it.' },
+        { n: '3', title: 'Share a read-only link', body: 'Same URL, remove everything from # onward. View-only.' },
+      ].map((step) => (
+        <div class="rounded-xl border border-rule bg-surface p-5">
+          <span class="font-mono text-xs text-pine-600">{step.n}</span>
+          <h3 class="mt-2 text-sm font-semibold text-ink">{step.title}</h3>
+          <p class="mt-1 text-sm leading-relaxed text-mid">{step.body}</p>
         </div>
       ))}
     </div>
 
-    <p class="mt-12 text-center text-sm text-warm-700 max-w-xl mx-auto">
-      <strong>Security note:</strong> The edit token lives in the URL fragment; it's never sent to the server in page loads.
-      Share the full URL (with <code class="rounded bg-white px-1 py-0.5 font-mono text-xs">#token</code>) for edit access, strip it for view-only.
+    <p class="mt-6 text-sm text-subtle">
+      Lost the edit token? Recover it from <code class="font-mono text-xs text-ink">data/fridges/&lt;slug&gt;.json</code> — look for <code class="font-mono text-xs text-ink">"editToken"</code>.
     </p>
   </div>
 </section>

@@ -1,51 +1,33 @@
 ---
-const features = [
-  {
-    emoji: "🔡",
-    title: "Letter Magnets",
-    description: "Alphabet magnets with Classic Plastic, Foam Bath, Wooden Block, and Schoolhouse styles, plus size presets.",
-  },
-  {
-    emoji: "📝",
-    title: "Sticky Notes",
-    description: "Add short notes with paper styles like Yellow Sticky, Lined Paper, Grocery List, and Index Card.",
-  },
-  {
-    emoji: "📷",
-    title: "Photos",
-    description: "Upload or drag in images, choose a frame style, resize them, and add optional captions.",
-  },
-  {
-    emoji: "😄",
-    title: "Emoji",
-    description: "Pick from built-in emoji categories and place large emoji pieces anywhere on the board.",
-  },
-  {
-    emoji: "✏️",
-    title: "Whiteboards",
-    description: "Add a dry-erase board, double-click it, and draw quick notes or sketches with marker colors.",
-  },
-  {
-    emoji: "🎨",
-    title: "Surface Themes",
-    description: "Switch the fridge surface between Classic White, Brushed Stainless, Retro Mint, Warm Cream, and Worn White.",
-  },
+const cols = [
+  [
+    { label: 'Shared editing',        body: 'The full board URL contains a #token fragment. Anyone with it can edit; anyone without it sees the board read-only.' },
+    { label: 'Named boards',          body: 'Boards live at /b/kitchen-board style URLs — bookmarkable, human-readable, permanent.' },
+    { label: 'Admin token',           body: 'Generated automatically on first start and required for board creation or deletion. Set SELFHOST_ADMIN_TOKEN to provide your own.' },
+    { label: 'Image uploads',         body: 'Photos are stored on disk as immutable assets referenced by opaque IDs. Board JSON stays small.' },
+  ],
+  [
+    { label: 'Zero npm dependencies', body: 'The server has no production npm dependencies. Node 26+ and a filesystem is all it needs to run.' },
+    { label: 'Rate limiting',         body: 'Write operations are rate-limited per client per board. Configurable for busier setups.' },
+    { label: 'Local mode',            body: 'The /local route runs a browser-only board backed by localStorage — useful for single-device use.' },
+    { label: 'Unraid community app',  body: 'Listed in the Unraid Community Applications store for one-click NAS installs.' },
+  ],
 ];
 ---
-<section class="bg-white px-6 py-20 sm:py-28">
-  <div class="mx-auto max-w-5xl">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold text-warm-900 sm:text-4xl">What you can put on the board</h2>
-      <p class="mt-4 text-lg text-warm-700">The app is built around the same things households already leave on a fridge.</p>
-    </div>
+<section class="border-b border-rule px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-10 text-2xl font-bold tracking-tight text-ink">How it's built</h2>
 
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {features.map(feature => (
-        <div class="group rounded-2xl border border-warm-100 bg-warm-50 p-6 transition hover:border-honey-200 hover:bg-honey-50">
-          <div class="mb-4 text-4xl">{feature.emoji}</div>
-          <h3 class="text-lg font-semibold text-warm-900">{feature.title}</h3>
-          <p class="mt-2 text-sm text-warm-700 leading-relaxed">{feature.description}</p>
-        </div>
+    <div class="grid gap-x-16 lg:grid-cols-2">
+      {cols.map((col) => (
+        <dl class="divide-y divide-rule">
+          {col.map((item) => (
+            <div class="py-5">
+              <dt class="text-sm font-semibold text-ink">{item.label}</dt>
+              <dd class="mt-1.5 text-sm leading-relaxed text-mid">{item.body}</dd>
+            </div>
+          ))}
+        </dl>
       ))}
     </div>
   </div>

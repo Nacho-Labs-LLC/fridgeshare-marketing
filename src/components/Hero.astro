@@ -1,51 +1,67 @@
 ---
+const boards = [
+  { name: 'Kitchen',     ago: '2 min ago' },
+  { name: 'Grocery List', ago: '3 hr ago'  },
+  { name: 'Family',      ago: 'yesterday' },
+];
 ---
-<section class="relative overflow-hidden bg-gradient-to-b from-honey-50 to-cream px-6 py-20 sm:py-32">
-  <div class="mx-auto max-w-4xl text-center">
-    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-honey-200 bg-white px-4 py-1.5 text-sm font-medium text-warm-700 shadow-sm">
-      <span class="h-2 w-2 rounded-full bg-honey-400"></span>
-      Open Source &middot; Self-Hosted &middot; No Accounts
-    </div>
+<section id="top" class="border-b border-rule px-6 pb-20 pt-36">
+  <div class="mx-auto max-w-6xl">
 
-    <h1 class="text-5xl font-bold tracking-tight text-warm-900 sm:text-6xl lg:text-7xl">
-      Your fridge door.<br class="hidden sm:block" />
-      <span class="text-honey-600">Running in two minutes.</span>
-    </h1>
-
-    <p class="mx-auto mt-6 max-w-2xl text-xl text-warm-700 leading-relaxed">
-      Run one Docker container, create a board, and share the edit link with your household.
+    <!-- Big headline -->
+    <p class="mb-5 font-mono text-xs text-subtle">
+      Self-hosted &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; Docker Compose &nbsp;·&nbsp; Node 26+
     </p>
 
-    <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-      <a
-        href="https://demo.fridgeshare.com"
-        class="inline-flex items-center gap-2 rounded-xl bg-honey-500 px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-honey-600 focus:outline-none focus:ring-2 focus:ring-honey-400 focus:ring-offset-2"
-      >
-        Try the Demo &rarr;
-      </a>
-      <a
-        href="https://github.com/nacho-labs-llc/fridgeshare"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 rounded-xl border-2 border-warm-200 bg-white px-8 py-4 text-base font-semibold text-warm-800 shadow-sm transition hover:border-warm-300 hover:bg-warm-50"
-      >
-        Self-Host Free &rarr;
-      </a>
-    </div>
+    <h1 class="max-w-4xl text-[clamp(3rem,8vw,5.5rem)] font-bold leading-[1.06] tracking-tight text-ink">
+      A shared board<br />
+      for your household.<br />
+      <span class="text-pine-600">Runs on your server.</span>
+    </h1>
 
-    <div class="mt-16 flex flex-wrap justify-center gap-3">
-      {[
-        { emoji: "🧲", bg: "bg-red-100" },
-        { emoji: "📝", bg: "bg-yellow-100" },
-        { emoji: "📸", bg: "bg-blue-100" },
-        { emoji: "✏️", bg: "bg-green-100" },
-        { emoji: "🌟", bg: "bg-purple-100" },
-        { emoji: "😄", bg: "bg-pink-100" },
-      ].map(item => (
-        <div class={`flex h-16 w-16 items-center justify-center rounded-2xl ${item.bg} shadow-sm text-3xl rotate-[-2deg] hover:rotate-0 transition-transform`}>
-          {item.emoji}
+    <div class="mt-10 grid gap-12 lg:grid-cols-[1fr_380px] lg:items-start">
+      <div>
+        <p class="max-w-[460px] text-lg leading-relaxed text-mid">
+          Sticky notes, letter magnets, photos, and drawings — shared with the people in your house. No accounts, no cloud. Boards are plain JSON files stored on your hardware.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="#self-host" class="rounded-lg bg-pine-600 px-5 py-3 text-sm font-semibold text-white hover:bg-pine-700 transition-colors">
+            Get started with Docker →
+          </a>
+          <a
+            href="https://github.com/nacho-labs-llc/fridgeshare"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-mid hover:text-ink transition-colors"
+          >View source ↗</a>
         </div>
-      ))}
+      </div>
+
+      <!-- Board directory mockup -->
+      <div class="rounded-xl border border-rule bg-surface shadow-sm overflow-hidden">
+        <div class="border-b border-rule px-5 py-3 flex items-center justify-between">
+          <span class="text-xs font-semibold text-subtle">Board Directory</span>
+          <span class="font-mono text-xs text-subtle">localhost:4173</span>
+        </div>
+        <div class="divide-y divide-rule">
+          {boards.map((board) => (
+            <div class="flex items-center justify-between px-5 py-4 hover:bg-bg transition-colors cursor-default">
+              <div>
+                <p class="text-sm font-medium text-ink">{board.name}</p>
+                <p class="mt-0.5 font-mono text-xs text-subtle">/b/{board.name.toLowerCase().replace(/ /g, '-')}</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-xs text-subtle">{board.ago}</span>
+                <span class="text-sm text-mid">→</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="border-t border-rule px-5 py-3">
+          <span class="text-sm font-medium text-pine-600">+ New board</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
