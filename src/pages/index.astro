@@ -1,15 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import ProductPreview from '../components/ProductPreview.astro';
 import Features from '../components/Features.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import TwoPaths from '../components/TwoPaths.astro';
+import TrustSection from '../components/TrustSection.astro';
+import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 ---
 <Layout>
-  <Hero />
-  <Features />
-  <HowItWorks />
-  <TwoPaths />
+  <Header />
+  <main>
+    <Hero />
+    <ProductPreview />
+    <Features />
+    <HowItWorks />
+    <TwoPaths />
+    <TrustSection />
+    <FAQ />
+  </main>
   <Footer />
 </Layout>

@@ -1,29 +1,34 @@
 ---
-const links = [
-  { label: "GitHub", href: "https://github.com/nacho-labs-llc/fridgeshare" },
-  { label: "Documentation", href: "https://docs.fridgeshare.com" },
-  { label: "Nacho Labs", href: "https://nacholabs.com" },
-];
 ---
-<footer class="border-t border-warm-100 bg-white px-6 py-10">
-  <div class="mx-auto max-w-5xl flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-    <div class="flex items-center gap-1 font-semibold text-warm-800">
-      🧲 <span>FridgeShare</span>
+<footer class="bg-night px-6 py-12">
+  <div class="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+    <div>
+      <div class="flex items-center gap-2 text-white">
+        <span aria-hidden="true">🧲</span>
+        <span class="text-sm font-semibold">FridgeShare</span>
+      </div>
+      <p class="mt-2 text-xs leading-relaxed text-white/40 max-w-xs">
+        A self-hosted household board. MIT licensed. Built by Nacho Labs LLC.
+      </p>
     </div>
-    <nav class="flex gap-6">
-      {links.map(link => (
-        <a
-          href={link.href}
-          target={link.href.startsWith("https") ? "_blank" : undefined}
-          rel={link.href.startsWith("https") ? "noopener noreferrer" : undefined}
-          class="text-sm text-warm-600 hover:text-warm-900 transition"
-        >
+
+    <nav class="flex flex-wrap gap-x-8 gap-y-3">
+      {[
+        { label: 'Self-hosting guide', href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/SELF_HOSTING.md' },
+        { label: 'Architecture',       href: 'https://github.com/nacho-labs-llc/fridgeshare/blob/master/docs/ARCHITECTURE.md' },
+        { label: 'GitHub',             href: 'https://github.com/nacho-labs-llc/fridgeshare' },
+        { label: 'Nacho Labs',         href: 'https://nacholabs.com' },
+      ].map((link) => (
+        <a href={link.href} target="_blank" rel="noopener noreferrer" class="text-sm text-white/40 hover:text-white/70 transition-opacity">
           {link.label}
         </a>
       ))}
     </nav>
-    <p class="text-xs text-warm-500">
-      © 2026 Nacho Labs LLC &middot; MIT Licensed (self-hosted)
+  </div>
+
+  <div class="mx-auto mt-10 max-w-6xl border-t border-white/10 pt-6">
+    <p class="font-mono text-xs text-white/20">
+      © 2026 Nacho Labs LLC · MIT License · No cookies · No tracking
     </p>
   </div>
 </footer>

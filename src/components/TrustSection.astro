@@ -1,0 +1,45 @@
+---
+const principles = [
+  {
+    title: 'No accounts.',
+    body: 'No sign-up, no login, no session management. Board access is granted by the URL fragment. Lose the token, look it up in the JSON file on disk.',
+  },
+  {
+    title: 'No cloud dependency.',
+    body: 'The server stores board state as JSON files on disk. No managed database, no external API, no service that can change its pricing or disappear.',
+  },
+  {
+    title: 'No telemetry.',
+    body: 'The app makes no outbound network calls. Nothing phones home. Your board activity stays on your hardware.',
+  },
+  {
+    title: 'No version lock-in.',
+    body: 'Board files are plain JSON with a documented structure. Read them, back them up, and migrate them without any special tooling.',
+  },
+];
+---
+<section class="border-b border-rule px-6 py-20">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-14 text-2xl font-bold tracking-tight text-ink">
+      What it doesn't do.
+    </h2>
+
+    <div class="space-y-10">
+      {principles.map((item) => (
+        <div class="grid gap-3 sm:grid-cols-[280px_1fr] sm:gap-12 sm:items-baseline">
+          <h3 class="text-[1.35rem] font-bold leading-tight tracking-tight text-ink">
+            {item.title}
+          </h3>
+          <p class="text-base leading-relaxed text-mid">{item.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-14 rounded-xl border border-rule bg-surface px-6 py-4 text-sm text-mid">
+      For public deployments: set
+      <code class="mx-1 rounded bg-bg px-1.5 py-0.5 font-mono text-xs text-ink">SELFHOST_ADMIN_TOKEN</code>
+      and back up the <code class="mx-1 rounded bg-bg px-1.5 py-0.5 font-mono text-xs text-ink">data/</code> directory.
+      Everything else is optional.
+    </div>
+  </div>
+</section>

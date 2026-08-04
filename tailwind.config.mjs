@@ -3,28 +3,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#faf8f3',
-        honey: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
+        bg: '#F7F5F1',
+        surface: '#FFFFFF',
+        ink: '#1C1917',
+        mid: '#57534E',
+        subtle: '#A8A29E',
+        rule: '#E5E2DC',
+        pine: {
+          DEFAULT: '#166534',
+          50: '#F0FDF4',
+          100: '#DCFCE7',
+          600: '#166534',
+          700: '#15803D',
+          900: '#14532D',
         },
-        warm: {
-          50: '#fdfaf6',
-          100: '#f7f0e4',
-          200: '#ede0ca',
-          700: '#6b4f35',
-          800: '#4a3728',
-          900: '#2d2015',
-        }
+        night: '#111827',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
-    }
+        sans: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Menlo', 'monospace'],
+      },
+    },
   },
   plugins: [],
 }
